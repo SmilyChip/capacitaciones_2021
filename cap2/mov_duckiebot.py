@@ -63,6 +63,9 @@ while True:
     if key == ord('w'):
         action = np.array([0.44, 0.0])
 
+    if key == ord('s'):
+        action = np.array([-0.44,0.0])
+        
     ### AGREGAR MÁS COMPORTAMIENTOS ###
 
 
