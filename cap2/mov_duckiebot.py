@@ -16,7 +16,7 @@ import cv2
 # Se leen los argumentos de entrada
 parser = argparse.ArgumentParser()
 parser.add_argument('--env-name', default="Duckietown-udem1-v1")
-parser.add_argument('--map-name', default='udem1')
+parser.add_argument('--map-name', default='angelos_map')
 parser.add_argument('--distortion', default=False, action='store_true')
 parser.add_argument('--draw-curve', action='store_true', help='draw the lane following curve')
 parser.add_argument('--draw-bbox', action='store_true', help='draw collision detection bounding boxes')
@@ -47,7 +47,6 @@ while True:
 
     # Captura la tecla que está siendo apretada y almacena su valor en key
     key = cv2.waitKey(30)
-
     # Si la tecla es Esc, se sale del loop y termina el programa
     if key == 27:
         break
@@ -56,19 +55,24 @@ while True:
     # velocidad lineal y velocidad de giro
     # En este caso, ambas velocidades son 0 (acción por defecto)
     action = np.array([0.0, 0.0])
-
+    toreto= int(1)
     # Definir acción en base a la tecla apretada
-
-    # Esto es avanzar recto hacia adelante al apretar la tecla w
+        
     if key == ord('w'):
-        action = np.array([0.44, 0.0])
+        action = np.array([0.6, 0.0])
 
     if key == ord('s'):
-        action = np.array([-0.44,0.0])
+        action = np.array([-0.60,0.0])
         
-    ### AGREGAR MÁS COMPORTAMIENTOS ###
-
-
+    if key == ord('a'):
+        action = np.array([0.40,1.0])
+       
+    if key == ord('d'):
+        action = np.array([0.40,-1.0])    
+     
+    #tuve fé key     
+    if key == ord('e'):
+        action[0] += toreto
 
     # Se ejecuta la acción definida anteriormente y se retorna la observación (obs),
     # la evaluación (reward), etc
