@@ -1,0 +1,22 @@
+# Material file for daffy.obj
+
+newmtl Material.000001
+Ns 10
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.117647 0.117647 0.117647
+illum 2
+map_Kd Image_2D_0051_0047.png
+
+newmtl Material.0002fe
+Ns 10
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.117647 0.117647 0.117647
+illum 2
+map_Kd daffy_texture_512.tga
+

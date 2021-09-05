@@ -1,0 +1,320 @@
+# The following section defines the grid layout.
+#
+# Each row is an array of tiles descriptions.
+# The top-left tile in this file maps to coordinates (0, 0) in the world
+# Each tile contains a string with the kind of tile and its orientation.
+# The orientations are North, South, East, West. This is the direction in
+# which the agent is expected to drive when going onto this tile.
+tiles:  # 1           2                 3             4               5             6              7             8               9           10
+- [grass        , grass        , floor        , floor        , grass        , floor       , floor       , grass        , grass       , water ] 
+- [grass        , grass        , curve_right/N, straight/W   , straight/W   , 3way_left/W , straight/W  , straight/W   , curve_left/N, water ]
+- [floor        , curve_right/N, curve_left/E , grass        , grass        , straight/N  , grass       , grass        , straight/N  , water ]
+- [floor        , straight/N   , grass        , grass        , curve_right/N, 3way_left/E , curve_left/N, grass        , straight/N  , water ]
+- [grass        , 3way_left/S  , straight/W   , straight/W   , 3way_left/N  , grass       , 3way_left/S , straight/W   , 3way_left/N , water ]
+- [grass        , straight/N   , grass        , grass        , curve_left/S , 3way_left/W , curve_left/E, grass        , straight/N  , water ]
+- [curve_right/N, curve_left/E , grass        , grass        , floor        , straight/N  , grass       , grass        , straight/N  , water ]
+- [straight/N   , floor        , floor        , curve_right/N, straight/E   , curve_left/E, grass       , curve_right/N, curve_left/E, water ]
+- [curve_left/S , straight/W   , straight/W   , 3way_left/E  , straight/W   , straight/W  , straight/W  , curve_left/E , floor       , water ]
+- [floor        , floor        , floor        , floor        , grass        , grass       , floor       , floor        , floor       , water ] 
+
+# The following is a listing of 3D objects placed on the map
+#
+# pos: object positions are scaled according to the tile size, so
+#      that (1.5, 2.5) would be exactly in the middle of tile (1, 2)
+# height: Objects can be scaled according to their real-world height in meters
+#         Duckietown tiles are 61cm, or 0.61 meter
+# rotate: the rotation angle determine the object's orientation
+#         a positive rotation angle corresponds to a counter-clockwise
+#         (leftward) rotation. The angles are in degrees.
+#         Models should, at angle 0, face towards the positive X axis.
+objects:
+
+#-------------------------------duckie----------------------------------------
+- kind: duckie
+  pos: [2.5, 2.9]
+  rotate: 0
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [2.2, 3.2]
+  rotate: 90
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [3.7, 3.7]
+  rotate: 62
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [3.4, 2.3]
+  rotate: 85
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [4.5, 2.2]
+  rotate: 34
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [6.4, 2.8]
+  rotate: -98
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [7.7, 2.2]
+  rotate: 35
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [7.1, 2.9]
+  rotate: -160
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [7.9, 3.6]
+  rotate: 0
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [9.4, 2.9]
+  rotate: 174
+  height: 0.08
+  optional: true
+- kind: duckie
+  pos: [9.5, 6.4]
+  rotate: 186
+  height: 0.08
+  optional: true  
+#--------------------------------building-------------------------------------  
+- kind: building 
+  pos: [8.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [7.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [6.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [3.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [2.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [1.5, 9.5]
+  rotate: 180
+  height: 0.8
+- kind: building 
+  pos: [0.5, 9.5]
+  rotate: 180
+  height: 0.8  
+#------------------------------------Lucas------------------------------------  
+- kind: daffy 
+  pos: [5.5, 4.5]
+  rotate: 180
+  height: 0.3      
+#-----------------------------------Tank-------------------------------------
+#- kind: tank 
+#  pos: [8.5, 8.5]
+#  rotate: 180
+#  height: 0.22      
+#----------------------------------traffic------------------------------------  
+- kind: sign_stop
+  pos: [2.92, 8.95]
+  rotate: 90
+  height: 0.18
+- kind: sign_stop
+  pos: [6.08, 6.06]
+  rotate: -90
+  height: 0.18
+- kind: sign_stop
+  pos: [7.08, 3.95]
+  rotate: 0
+  height: 0.18
+- kind: sign_stop
+  pos: [4.94, 2.95]
+  rotate: 90
+  height: 0.18
+- kind: sign_stop
+  pos: [3.94, 5.05]
+  rotate: 180
+  height: 0.18
+- kind: trafficlight
+  pos: [7.94, 5.15]
+  rotate: 135
+  height: 0.35  
+- kind: trafficlight
+  pos: [6.06, 2.08]
+  rotate: 225
+  height: 0.35  
+- kind: trafficlight
+  pos: [2.06, 3.95]
+  rotate: -45
+  height: 0.35            
+#------------------------------------duckiebot--------------------------------  
+- kind: duckiebot
+  pos: [5.5, 8.7]
+  rotate: 0
+  height: 0.15
+- kind: duckiebot 
+  pos: [8.7, 2.5]
+  rotate: 90
+  height: 0.15
+- kind: duckiebot
+  pos: [1.2, 5.5]
+  rotate: -90
+  height: 0.15  
+- kind: duckiebot 
+  pos: [3.9, 1.7]
+  rotate: -180
+  height: 0.15
+#--------------------------------------tree-----------------------------------    
+- kind: tree 
+  pos: [6.2, 2.2]
+  rotate: -90
+  height: 0.3 
+- kind: tree 
+  pos: [7.1, 2.6]
+  rotate: -90
+  height: 0.3 
+- kind: tree 
+  pos: [7.7, 3.0]
+  rotate: -90
+  height: 0.26 
+- kind: tree 
+  pos: [7.2, 3.7]
+  rotate: -90
+  height: 0.28  
+- kind: tree 
+  pos: [4.7, 2.7]
+  rotate: -90
+  height: 0.26
+- kind: tree 
+  pos: [3.8, 2.3]
+  rotate: -90
+  height: 0.23
+- kind: tree 
+  pos: [3.3, 3.2]
+  rotate: -90
+  height: 0.29
+- kind: tree 
+  pos: [2.3, 3.8]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [7.3, 5.4]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [7.7, 6.2]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [6.7, 6.8]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [7.8, 6.8]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [2.5, 5.8]
+  rotate: -90
+  height: 0.3 
+- kind: tree 
+  pos: [3.4, 5.4]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [0.5, 4.6]
+  rotate: -90
+  height: 0.3   
+- kind: tree 
+  pos: [3.5, 6.5]
+  rotate: -90
+  height: 0.3   
+- kind: tree 
+  pos: [4.5, 0.5]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [7.5, 0.8]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [8.5, 0.4]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [0.5, 0.5]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [1.4, 0.5]
+  rotate: -90
+  height: 0.3
+- kind: tree 
+  pos: [1.5, 1.4]
+  rotate: -90
+  height: 0.3    
+- kind: tree 
+  pos: [0.4, 1.6]
+  rotate: -90
+  height: 0.3        
+- kind: tree 
+  pos: [0.5, 5.6]
+  rotate: -90
+  height: 0.3  
+- kind: tree 
+  pos: [5.1, 9.5]
+  rotate: -90
+  height: 0.7        
+#------------------------------------house------------------------------------      
+- kind: house
+  pos: [1.5, 7.5]
+  rotate: -90
+  height: 0.3
+- kind: house
+  pos: [2.5, 7.5]
+  rotate: -90
+  height: 0.3 
+- kind: house
+  pos: [4.5, 6.5]
+  rotate: 0
+  height: 0.3
+- kind: house
+  pos: [6.5, 7.5]
+  rotate: -90
+  height: 0.3
+- kind: house
+  pos: [0.5, 2.5]
+  rotate: 0
+  height: 0.3
+- kind: house
+  pos: [0.5, 3.5]
+  rotate: 0
+  height: 0.3    
+- kind: house
+  pos: [2.5, 0.5]
+  rotate: -90
+  height: 0.3 
+- kind: house
+  pos: [3.5, 0.5]
+  rotate: -90
+  height: 0.3 
+- kind: house
+  pos: [5.5, 0.5]
+  rotate: -90
+  height: 0.3 
+- kind: house
+  pos: [6.5, 0.5]
+  rotate: -90
+  height: 0.3         
+             
+tile_size: 0.585
