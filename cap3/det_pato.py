@@ -32,7 +32,7 @@ if __name__ == '__main__':
     # Se leen los argumentos de entrada
     parser = argparse.ArgumentParser()
     parser.add_argument('--env-name', default="Duckietown-udem1-v1")
-    parser.add_argument('--map-name', default='angelos_map')
+    parser.add_argument('--map-name', default='udem1')
     parser.add_argument('--distortion', default=False, action='store_true')
     parser.add_argument('--draw-curve', action='store_true', help='draw the lane following curve')
     parser.add_argument('--draw-bbox', action='store_true', help='draw collision detection bounding boxes')
@@ -116,9 +116,9 @@ if __name__ == '__main__':
             # Obtener rectangulo que bordea un contorno
             x, y, w, h = cv2.boundingRect(cnt)
             #Filtrar por area minima
-            if x*y > min_area: # DEFINIR AREA
+            if w*h > min_area: # DEFINIR AREA
                 #Dibujar rectangulo en el frame original
-                cv2.rectangle(obs , (x, y), (x+w, y+h), (255,0,128) , 2 ) 
+                cv2.rectangle(obs , (x, y), (x+w, y+h), (255,0,128) , 3 ) 
 
         # Se muestra en una ventana llamada "patos" la observación del simulador
         # con los bounding boxes dibujados
